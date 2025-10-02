@@ -1,0 +1,1869 @@
+---
+title: "R_Basic_to_Advance"
+author: "Rizwan_shah"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+  word_document: default
+---
+
+```{r}
+#What is R
+#R is a popular programming language used for statistical computing and graphical #presentation.
+
+#Its most common use is to analyze and visualize data
+#Basic Syntax
+print("Hellow Word!")
+# Assigning values
+x <- 10     # Preferred in R
+y = 20      # Works, but less common
+z <<- 30    # Global assignment
+
+print(x)
+print(y)
+print(z)
+print(x,y,z)
+# Data Types in R
+# numeric
+x <- 10.5
+class(x)
+
+# integer
+x <- 1000L
+class(x)
+
+# complex
+x <- 9i + 3
+class(x)
+
+# character/string
+x <- "R is exciting"
+class(x)
+
+# logical/boolean
+x <- TRUE
+class(x)
+
+x = 5.6
+
+print(class(x))
+
+print(typeof(x))
+
+x <- 10.5
+y <- 20
+class(x)   # "numeric"
+class(y)   # "numeric"
+y = 5
+
+print(is.integer(y))
+#Integer Data type in R 
+x = as.integer(5)
+
+print(class(x))
+
+print(typeof(x))
+
+y = 5L
+
+print(class(y))
+
+print(typeof(y))
+a <- 5L
+class(a)   # "integer"
+is.integer(a)  # TRUE
+# Complex Data type in R
+x = 4 + 3i
+
+print(class(x))
+
+print(typeof(x))
+z <- 2 + 3i
+class(z)   # "complex"
+Mod(z)     # magnitude
+
+# Character Data type in R
+char = "Geeksforgeeks"
+
+print(class(char))
+
+print(typeof(char))
+name <- "Billo"
+class(name)   # "character"
+# Logical
+flag <- TRUE
+class(flag)   # "logical"
+
+10 > 5   # TRUE
+10 < 5   # FALSE
+x = 4
+y = 3
+
+z = x > y
+
+print(z)
+
+print(class(z))
+
+print(typeof(z))
+#Raw data type in R
+x <- as.raw(c(0x1, 0x2, 0x3, 0x4, 0x5))
+print(x)
+r <- charToRaw("Hello")
+print(r)     # 48 65 6c 6c 6f
+class(r)     # "raw"
+print(class(TRUE))
+
+print(class(3L))
+
+print(class(10.5))
+
+print(class(1+2i))
+
+print(class("12-04-2020"))
+#Type verification
+print(is.logical(TRUE))
+
+print(is.integer(3L))
+
+print(is.numeric(10.5))
+
+print(is.complex(1+2i))
+
+print(is.character("12-04-2020"))
+
+print(is.integer("a"))
+
+print(is.numeric(2+3i))
+#Data Type Conversion in R
+print(as.numeric(TRUE))
+
+print(as.complex(3L))
+
+print(as.logical(10.5))
+
+print(as.character(1+2i))
+
+print(as.numeric("12-04-2020"))
+
+#R Numbers
+# There are three types of number 1 Numeric: 2 Integer:3 Complex
+# NUMERIC
+x <- 10.5
+y <- 55
+
+# Print values of x and y
+x
+y
+
+# Print the class name of x and y
+class(x)
+class(y)
+# Integer
+x <- 1000L
+y <- 55L
+
+# Print values of x and y
+x
+y
+
+# Print the class name of x and y
+class(x)
+class(y)
+#complex
+x <- 3+5i
+y <- 5i
+
+# Print values of x and y
+x
+y
+
+# Print the class name of x and y
+class(x)
+#Simple Math in R
+a <- 10
+b <- 3
+
+a + b     # Addition → 13
+a - b     # Subtraction → 7
+a * b     # Multiplication → 30
+a / b     # Division → 3.333
+a ^ b     # Power → 1000 (10^3)
+a %% b    # Modulus → 1 (remainder)
+a %/% b   # Integer Division → 3
+#Built-in Math Functions
+sqrt(16)      # Square root → 4
+abs(-5)       # Absolute value → 5
+round(3.1415, 2)  # Round to 2 decimals → 3.14
+ceiling(2.3)  # Round up → 3
+floor(2.9)    # Round down → 2
+#Trigonometry
+sin(pi/2)   # 1
+cos(pi)     # -1
+tan(pi/4)   # 1
+#Logarithms & Expone
+
+log(10)     # Natural log (base e)
+log10(100)  # Log base 10 → 2
+exp(1)      # e^1 → 2.718
+#Sequences for Math
+1:5           # 1 2 3 4 5
+seq(1, 10, 2) # 1 3 5 7 9
+sum(1:5)      # 15
+mean(1:5)     # 3
+# Addition
+a <- 5
+b <- 3
+
+# Sum calculation
+sum_result <- a + b
+print("The sum is:")
+print(sum_result)  
+
+# Subtraction
+# Difference calculation
+difference_result <- a - b
+print("The difference is:")
+print(difference_result) 
+
+# Multiplication
+# Product calculation
+product_result <- a * b
+print("The product is:")
+print(product_result)  
+
+# Division
+# Quotient calculation
+quotient_result <- a / b
+print("The quotient is:")
+print(quotient_result)
+#Variables & Assignment in R
+# -----------------------------
+# VARIABLES & ASSIGNMENT IN R
+# -----------------------------
+
+# 1. Left Assignment (<-)
+x <- 10
+y <- "Hello"
+z <- TRUE
+
+# 2. Right Assignment (->)
+20 -> a
+"R Language" -> b
+
+# 3. Equal Sign (=)
+c = 30
+d = 3.14
+
+# 4. Global Assignment (<<- and ->>)
+# Works across environments (functions + global)
+num <<- 100
+200 ->> result
+
+# -----------------------------
+# PRINTING VARIABLES
+# -----------------------------
+print(x)   # 10
+print(y)   # "Hello"
+print(z)   # TRUE
+print(a)   # 20
+print(b)   # "R Language"
+print(c)   # 30
+print(d)   # 3.14
+print(num) # 100
+print(result) # 200
+
+# -----------------------------
+# RULES FOR VARIABLE NAMES
+# -----------------------------
+# ✅ Valid
+age <- 22
+.student_name <- "Billo"
+marks_1 <- 95
+
+# ❌ Invalid (will give error if you uncomment)
+# 1age <- 22        # starts with number
+# student name <- "Ali"   # space not allowed
+
+# -----------------------------
+# CHECKING VARIABLE TYPE
+# -----------------------------
+class(x)   # "numeric"
+class(y)   # "character"
+class(z)   # "logical"
+class(d)   # "numeric"
+
+# Vectore in R
+# Creating a numeric vector
+numeric_vector <- c(1, 5, 8, 12)
+
+# Creating a character vector
+character_vector <- c("apple", "banana", "cherry")
+
+# Creating a logical vector
+logical_vector <- c(TRUE, FALSE, TRUE)
+#Accessing Vector Elements
+# Accessing the first element of a vector
+first_element <- numeric_vector[1]
+
+# Accessing a range of elements
+subset_vector <- numeric_vector[2:4]
+#Vector Operations:
+# Adding two vectors
+vector_sum <- c(1, 2, 3) + c(4, 5, 6) # Result: c(5, 7, 9)
+
+# Multiplying a vector by a scalar
+scaled_vector <- c(1, 2, 3) * 2 # Result: c(2, 4, 6)
+X<- c(61, 4, 21, 67, 89, 2)
+cat('using c function', X, '\n')
+
+Y<- seq(1, 10, length.out = 5) 
+cat('using seq() function', Y, '\n') 
+
+Z<- 2:7
+cat('using colon', Z)
+#Length of R vector
+x <- c(1, 2, 3, 4, 5)
+length(x)
+
+y <- c("apple", "banana", "cherry")
+length(y)
+
+z <- c(TRUE, FALSE, TRUE, TRUE)
+length(z)
+#Modifying a R vector
+X <- c(2, 7, 9, 7, 8, 2)
+
+X[3] <- 1
+X[2] <- 9
+cat('subscript operator', X, '\n')
+
+X[1:5] <- 0
+cat('Logical indexing', X, '\n')
+
+X <- X[c(3, 2, 1)]
+cat('combine() function', X)
+#Deleting a R vector
+M <- c(8, 10, 2, 5)
+
+M <- NULL
+
+print(cat('Output vector', M, "\f"))
+#Sorting elements of a R Vector
+X <- c(8, 2, 7, 1, 11, 2)
+
+A <- sort(X)
+cat('ascending order', A, '\n')
+
+B <- sort(X, decreasing = TRUE)
+cat('descending order', B)
+
+# -----------------------------
+# VECTORS IN R
+# -----------------------------
+
+# 1. Creating Vectors
+
+# (a) Using c() - combine function
+v1 <- c(1, 2, 3, 4, 5)          # Numeric vector
+v2 <- c("Ali", "Sara", "Omar")  # Character vector
+v3 <- c(TRUE, FALSE, TRUE)      # Logical vector
+
+# (b) Using colon operator (:)
+v4 <- 1:10       # 1,2,...,10
+v5 <- 5:-5       # 5,4,3,2,1,0,-1,...,-5
+
+# (c) Using seq()
+v6 <- seq(1, 20, by = 2)        # 1,3,5,...19
+v7 <- seq(0, 1, length.out = 5) # equally spaced values
+
+# (d) Using rep()
+v8 <- rep(7, times = 5)         # 7 7 7 7 7
+v9 <- rep(c(1,2), each = 3)     # 1 1 1 2 2 2
+
+# -----------------------------
+# 2. Accessing Vector Elements
+v <- c(10, 20, 30, 40, 50)
+
+first <- v[1]        # 10
+third <- v[3]        # 30
+multiple <- v[c(2,4)]# 20,40
+exclude <- v[-1]     # 20 30 40 50
+
+# -----------------------------
+# 3. Vectorized Operations
+x <- c(1, 2, 3)
+y <- c(10, 20, 30)
+
+add <- x + y         # 11 22 33
+multiply <- x * y    # 10 40 90
+power <- x ^ 2       # 1 4 9
+mix <- (x + 2) * y   # (3 4 5) * (10 20 30)
+
+# -----------------------------
+# 4. Useful Functions on Vectors
+nums <- c(5, 10, 15, 20)
+
+len <- length(nums)                  # 4
+total <- sum(nums)                   # 50
+avg <- mean(nums)                    # 12.5
+big <- max(nums)                     # 20
+small <- min(nums)                   # 5
+sorted <- sort(nums, decreasing=TRUE)# 20 15 10 5
+
+# -----------------------------
+# PRINTING RESULTS
+print(v1); print(v2); print(v3)
+print(v4); print(v5)
+print(v6); print(v7)
+print(v8); print(v9)
+
+print(first); print(third)
+print(multiple); print(exclude)
+
+print(add); print(multiply)
+print(power); print(mix)
+
+print(len); print(total)
+print(avg); print(big)
+print(small); print(sorted)
+
+# ------------- Matrix in R----------------------
+# Matrices in R
+
+# Matrices in R
+
+# Create a 3x3 matrix filled column-wise by default
+my_matrix <- matrix(1:9, nrow = 3) 
+print(my_matrix)
+
+# Create a 3x3 matrix filled row-wise
+my_matrix_rowwise <- matrix(1:9, nrow = 3, byrow = TRUE)
+print(my_matrix_rowwise)
+
+vec1 <- c(1, 2, 3)
+vec2 <- c(4, 5, 6)
+combined_matrix <- cbind(vec1, vec2) # Combines as columns
+print(combined_matrix)
+
+# Accessing elements
+print(my_matrix[2, 3]) # Access element at row 2, column 3
+print(my_matrix[1, ])  # Access all elements in row 1
+print(my_matrix[, 2])  # Access all elements in column 2
+
+# Matrix multiplication
+matrix_A <- matrix(c(1, 2, 3, 4), nrow = 2)
+matrix_B <- matrix(c(5, 6, 7, 8), nrow = 2)
+result_matrix <- matrix_A %*% matrix_B
+print(result_matrix)
+
+# Named matrix
+A <- matrix(
+  c(1, 2, 3, 4, 5, 6, 7, 8, 9), 
+  nrow = 3,   
+  ncol = 3,         
+  byrow = TRUE          
+)
+rownames(A) <- c("a", "b", "c")
+colnames(A) <- c("c", "d", "e")
+cat("The 3x3 matrix:\n")
+print(A)
+
+# Special Matrix 
+print(matrix(5, 3, 3))
+
+# Diagonal matrix
+print(diag(c(5, 3, 3)))
+
+# Identity matrix
+print(diag(3)) # Corrected to generate a 3x3 identity matrix
+
+# Dimensions of a matrix
+A <- matrix(
+  c(1, 2, 3, 4, 5, 6, 7, 8, 9), 
+  nrow = 3,             
+  ncol = 3,             
+  byrow = TRUE          
+)
+cat("The 3x3 matrix:\n")
+print(A)
+
+cat("Dimension of the matrix:\n")
+print(dim(A))
+
+cat("Number of rows:\n")
+print(nrow(A))
+
+cat("Number of columns:\n")
+print(ncol(A))
+
+cat("Number of elements:\n")
+print(length(A))
+print(prod(dim(A)))
+
+# Accessing rows
+cat("Accessing first and second row\n")
+print(A[1:2, ])
+
+# Accessing columns
+cat("Accessing first and second column\n")
+print(A[, 1:2])
+
+# Accessing Elements of a matrix
+cat("Accessing specific elements:\n")
+print(A[1, 2]) # 1st row, 2nd column
+print(A[2, 3]) # 2nd row, 3rd column
+
+# Accessing Submatrices in R
+cat("Accessing the first three rows and the first two columns\n")
+print(A[1:3, 1:2])
+
+# Modifying Elements of a Matrix
+A[3, 3] <- 30 # 3rd row, 3rd column element is changed to 30 
+cat("After editing the matrix\n")
+print(A)
+
+# Concatenation of a row
+B <- matrix(
+  c(10, 11, 12),
+  nrow = 1,
+  ncol = 3
+)
+cat("The 1x3 matrix:\n")
+print(B)
+
+C <- rbind(A, B)
+cat("After concatenation of a row:\n")
+print(C)
+
+# Concatenation of a column
+B <- matrix(
+  c(10, 11, 12),
+  nrow = 3,
+  ncol = 1
+)
+cat("The 3x1 matrix:\n")
+print(B)
+
+C <- cbind(A, B)
+cat("After concatenation of a column:\n")
+print(C)
+
+# Adding Row
+number <- matrix(
+  c(1, 2, 3, 4, 5, 6, 7, 8, 9), 
+  nrow = 3,             
+  ncol = 3,             
+  byrow = TRUE          
+)
+cat("Before inserting a new row:\n")
+print(number)
+
+new_row <- c(10, 11, 12)
+number <- rbind(number, new_row)
+
+cat("\nAfter inserting a new row:\n")
+print(number)
+
+# Adding Column
+number <- matrix(
+  c(1, 2, 3, 4, 5, 6, 7, 8, 9), 
+  nrow = 3,             
+  ncol = 3,             
+  byrow = TRUE          
+)
+cat("Before adding a new column:\n")
+print(number)
+
+new_column <- c(10, 11, 12)
+number <- cbind(number, new_column)
+
+cat("\nAfter adding a new column:\n")
+print(number)
+
+# Row deletion
+A <- matrix(
+  c(1, 2, 3, 4, 5, 6, 7, 8, 9), 
+  nrow = 3,             
+  ncol = 3,             
+  byrow = TRUE          
+)
+cat("Before deleting the 2nd row\n")
+print(A)
+
+A <- A[-2, ]
+cat("After deleting the 2nd row\n")
+print(A)
+
+# Column deletion
+A <- matrix(
+  c(1, 2, 3, 4, 5, 6, 7, 8, 9), 
+  nrow = 3,             
+  ncol = 3,             
+  byrow = TRUE          
+)
+cat("Before deleting the 2nd column\n")
+print(A)
+
+A <- A[, -2]
+cat("After deleting the 2nd column\n")
+print(A)
+
+# -----------------------------
+# MATRIX IN R
+# -----------------------------
+
+# 1. Creating a Matrix
+
+# (a) Using matrix() function
+m1 <- matrix(1:6, nrow = 2, ncol = 3)            # fills column-wise by default
+m2 <- matrix(1:6, nrow = 2, ncol = 3, byrow=TRUE) # fills row-wise
+
+# (b) Using rbind() and cbind()
+row1 <- c(1, 2, 3)
+row2 <- c(4, 5, 6)
+m3 <- rbind(row1, row2)  # bind rows
+m4 <- cbind(row1, row2)  # bind columns
+
+# -----------------------------
+# 2. Accessing Elements
+m <- matrix(1:9, nrow=3, byrow=TRUE)
+
+elem <- m[2, 3]        # element at 2nd row, 3rd column
+row2 <- m[2, ]         # entire 2nd row
+col3 <- m[, 3]         # entire 3rd column
+subm <- m[1:2, 2:3]    # sub-matrix (rows 1-2, cols 2-3)
+
+# -----------------------------
+# 3. Matrix Operations
+A <- matrix(1:4, nrow=2)
+B <- matrix(5:8, nrow=2)
+
+add <- A + B           # element-wise addition
+sub <- A - B           # element-wise subtraction
+mul <- A * B           # element-wise multiplication
+div <- A / B           # element-wise division
+prod <- A %*% B        # matrix multiplication (dot product)
+
+# -----------------------------
+# 4. Useful Functions on Matrices
+m5 <- matrix(1:12, nrow=3, byrow=TRUE)
+
+dim_m5 <- dim(m5)      # dimensions (rows, cols)
+nrow_m5 <- nrow(m5)    # number of rows
+ncol_m5 <- ncol(m5)    # number of cols
+
+transpose <- t(m5)     # transpose
+row_sum <- rowSums(m5) # sum of each row
+col_sum <- colSums(m5) # sum of each col
+row_mean <- rowMeans(m5) # mean of each row
+col_mean <- colMeans(m5) # mean of each col
+
+# -----------------------------
+# 5. Naming Rows & Columns
+m6 <- matrix(1:9, nrow=3, byrow=TRUE)
+rownames(m6) <- c("R1", "R2", "R3")
+colnames(m6) <- c("C1", "C2", "C3")
+
+# -----------------------------
+# PRINTING RESULTS
+print("Matrix m1:"); print(m1)
+print("Matrix m2 (by row):"); print(m2)
+print("Matrix m3 (rbind):"); print(m3)
+print("Matrix m4 (cbind):"); print(m4)
+
+print("Element m[2,3]:"); print(elem)
+print("Row 2:"); print(row2)
+print("Column 3:"); print(col3)
+print("Sub-matrix 1:2,2:3:"); print(subm)
+
+print("Matrix A:"); print(A)
+print("Matrix B:"); print(B)
+print("A+B:"); print(add)
+print("A-B:"); print(sub)
+print("A*B:"); print(mul)
+print("A/B:"); print(div)
+print("A %*% B (matrix multiplication):"); print(prod)
+
+print("Matrix m5:"); print(m5)
+print("Dimensions:"); print(dim_m5)
+print("Transpose:"); print(transpose)
+print("Row sums:"); print(row_sum)
+print("Col sums:"); print(col_sum)
+print("Row means:"); print(row_mean)
+print("Col means:"); print(col_mean)
+
+print("Matrix m6 with names:"); print(m6)
+
+
+
+```
+```{r}
+#------------------- List in R--------------------
+
+my_named_list <- list(name = "Sudheer", age = 25, city = "Delhi")
+
+print(my_named_list)
+empId = c(1, 2, 3, 4) 
+empName = c("Debi", "Sandeep", "Subham", "Shiba")
+numberOfEmp = 4
+ 
+empList = list(empId, empName, numberOfEmp)
+ 
+print(empList)
+
+#Access components by names
+empId = c(1, 2, 3, 4)
+empName = c("Debi", "Sandeep", "Subham", "Shiba")
+numberOfEmp = 4
+
+empList = list(
+  "ID" = empId,
+  "Names" = empName,
+  "Total Staff" = numberOfEmp
+  )
+print(empList)
+
+cat("Accessing name components using $ command\n")
+print(empList$Names)
+#Access components by indices:
+empId = c(1, 2, 3, 4)
+empName = c("Debi", "Sandeep", "Subham", "Shiba")
+numberOfEmp = 4
+
+empList = list(
+  "ID" = empId,
+  "Names" = empName,
+  "Total Staff" = numberOfEmp
+)
+print(empList)
+
+cat("Accessing name components using indices\n")
+print(empList[[2]])
+
+cat("Accessing Sandeep from name using indices\n")
+print(empList[[2]][2])
+
+cat("Accessing 4 from ID using indices\n")
+print(empList[[1]][4])
+#Modifying Components of a List
+empId = c(1, 2, 3, 4)
+empName = c("Debi", "Sandeep", "Subham", "Shiba")
+numberOfEmp = 4
+
+empList = list(
+  "ID" = empId,
+  "Names" = empName,
+  "Total Staff" = numberOfEmp
+)
+cat("Before modifying the list\n")
+print(empList)
+
+empList$`Total Staff` = 5
+empList[[1]][5] = 5
+empList[[2]][5] = "Kamala"
+
+cat("After modified the list\n")
+print(empList)
+
+#Concatenation of lists
+empId = c(1, 2, 3, 4)
+empName = c("Debi", "Sandeep", "Subham", "Shiba")
+numberOfEmp = 4
+
+empList = list(
+  "ID" = empId,
+  "Names" = empName,
+  "Total Staff" = numberOfEmp
+)
+cat("Before concatenation of the new list\n")
+print(empList)
+
+empAge = c(34, 23, 18, 45)
+empList = c(empName, empAge)
+
+cat("After concatenation of the new list\n")
+print(empList)
+#Adding Item to List
+my_numbers = c(1,5,6,3)
+
+append(my_numbers, 45)
+
+my_numbers
+
+#Deleting Components of a List
+empId = c(1, 2, 3, 4)
+empName = c("Debi", "Sandeep", "Subham", "Shiba")
+numberOfEmp = 4
+
+empList = list(
+  "ID" = empId,
+  "Names" = empName,
+  "Total Staff" = numberOfEmp
+)
+cat("Before deletion the list is\n")
+print(empList)
+
+cat("After Deleting Total staff components\n")
+print(empList[-3])
+
+cat("After Deleting sandeep from name\n")
+print(empList[[2]][-2])
+#Merging list
+lst1 <- list(1,2,3)
+lst2 <- list("Sun","Mon","Tue")
+
+new_list <- c(lst1, lst2)
+
+print(new_list)
+
+#Converting List to Vector
+lst <- list(1:5)
+print(lst)
+
+vec <- unlist(lst)
+
+print(vec)
+
+#R List to matrix
+lst1 <- list(list(1, 2, 3),
+            list(4, 5, 6))
+
+cat("The list is:\n")
+print(lst1)
+cat("Class:", class(lst1), "\n")
+
+mat <- matrix(unlist(lst1), nrow = 2, byrow = TRUE)
+
+cat("\nAfter conversion to matrix:\n")
+print(mat)
+cat("Class:", class(mat), "\n")
+
+
+
+```
+```{r}
+#----------------- DataFrame in R------------------
+# 1. What is a Data Frame?
+# A data frame is a two-dimensional table-like structure:
+# - Columns can have different data types.
+# - Each row represents an observation.
+
+# 2. Creating a Data Frame
+# Create a data frame
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Print the data frame
+Data_Frame
+#Summarize the Data
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+Data_Frame
+
+summary(Data_Frame)
+
+#Access Items
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+Data_Frame[1]
+
+Data_Frame[["Training"]]
+
+Data_Frame$Training
+
+#Add Rows
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Add a new row
+New_row_DF <- rbind(Data_Frame, c("Strength", 110, 110))
+
+# Print the new row
+New_row_DF
+
+#Add Columns
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Add a new column
+New_col_DF <- cbind(Data_Frame, Steps = c(1000, 6000, 2000))
+
+# Print the new column
+New_col_DF
+
+#Remove Rows and Columns
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Remove the first row and column
+Data_Frame_New <- Data_Frame[-c(1), -c(1)]
+
+# Print the new data frame
+Data_Frame_New
+
+#Amount of Rows and Columns
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+dim(Data_Frame)
+
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+ncol(Data_Frame)
+nrow(Data_Frame)
+
+#Data Frame Length
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+length(Data_Frame)
+#Combining Data Frames
+Data_Frame1 <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+Data_Frame2 <- data.frame (
+  Training = c("Stamina", "Stamina", "Strength"),
+  Pulse = c(140, 150, 160),
+  Duration = c(30, 30, 20)
+)
+
+New_Data_Frame <- rbind(Data_Frame1, Data_Frame2)
+New_Data_Frame
+
+#Extract Data from Data Frame in R
+friend.data <- data.frame(
+    friend_id = c(1:5), 
+    friend_name = c("Sachin", "Sourav", 
+                    "Dravid", "Sehwag", 
+                    "Dhoni"),
+    stringsAsFactors = FALSE
+)
+
+result <- data.frame(friend.data$friend_name)
+print(result)
+
+#Combine Data Frame Horizontally
+df1 <- data.frame(
+  Name = c("Alice", "Bob"),
+  Age = c(25, 30),
+  Score = c(80, 75)
+)
+
+df2 <- data.frame(
+  Height = c(160, 175),
+  Weight = c(55, 70)
+)
+
+cat("Dataframe 1:\n")
+print(df1)
+
+cat("\nDataframe 2:\n")
+print(df2)
+
+combined_df <- cbind(df1, df2)
+
+cat("\nCombined Dataframe:\n")
+print(combined_df)
+```
+```{r}
+#Arrays
+#Compared to matrices, arrays can have more than two dimensions.
+
+#We can use the array() function to create an array, and the dim parameter to #specify the dimensions:
+# An array with one dimension with values ranging from 1 to 24
+thisarray <- c(1:24)
+thisarray
+
+# An array with more than one dimension
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+
+#Access Array Items
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+multiarray[2, 3, 2]
+#The syntax is as follow: array[row position, column position, matrix level]
+thisarray <- c(1:24)
+
+# Access all the items from the first row from matrix one
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray[c(1),,1]
+
+# Access all the items from the first column from matrix one
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray[,c(1),1]
+#Check if an Item Exists
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+2 %in% multiarray
+#Amount of Rows and Columns
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+dim(multiarray)
+
+#Array Length
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+length(multiarray)
+#Loop Through an Array
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+for(x in multiarray){
+  print(x)
+}
+#Multi-Dimensional Array using vectors
+vec1 <- c(1, 2, 3, 4, 5, 6, 7, 8, 9) 
+vec2 <- c(10, 11, 12) 
+
+arr = array(c(vec1, vec2), dim = c(2, 3, 2)) 
+print(arr)
+# Naming of Arrays
+row_names <- c("row1", "row2") 
+col_names <- c("col1", "col2", "col3") 
+mat_names <- c("Arr1", "Arr2") 
+
+arr = array(2:14, dim = c(2, 3, 2), 
+            dimnames = list(row_names, 
+                            col_names, mat_names)) 
+print (arr)
+
+#Adding elements to array
+x <- c(1, 2, 3, 4, 5)
+
+x <- c(x, 6)
+print("Array after 1st modification")
+print(x)
+
+x <- append(x, 7)
+print("Array after 2nd modification")
+print(x)
+
+len <- length(x)
+x[len + 1] <- 8
+print("Array after 3rd modification")
+print(x)
+
+x[len + 3] <- 9
+print("Array after 4th modification")
+print(x)
+
+print("Array after 5th modification")
+x <- append(x, c(10, 11, 12), after = length(x) + 3)
+print(x)
+
+print("Array after 6th modification")
+x <- append(x, c(-1, -1), after = 3)
+print(x)
+
+#Removing Elements from Array
+m <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+print("Original Array")
+print(m)
+
+m <- m[m != 3]
+print("After 1st modification")
+print(m)
+
+m <- m[m > 2 & m <= 8]
+print("After 2nd modification")
+print(m)
+
+remove <- c(4, 6, 8)
+
+print(m %in% remove)
+print("After 3rd modification")
+print(m[!m %in% remove])
+
+#Updating Existing Elements of Array
+m <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+print("Original Array")
+print(m)
+
+m[1] <- 0
+print("After 1st modification")
+print(m)
+
+m[7:9] <- -1
+print("After 2nd modification")
+print(m)
+
+m[c(2, 5)] <- c(-1, -2)
+print("After 3rd modification")
+print(m)
+
+m[10] <- 10
+print("After 4th modification")
+print(m)
+
+```
+```{r}
+#----------------- Fectore in R---------------------
+x <-c("female", "male", "male", "female")
+print(x)
+
+gender <-factor(x)
+print(gender)
+
+gender <- factor(c("female", "male", "male", "female"),
+          levels = c("female", "transgender", "male"))
+          
+print(gender)
+
+#Checking for a Factor in R
+gender <- factor(c("female", "male", "male", "female"));
+print(is.factor(gender))
+# Class in the fectore
+gender <- factor(c("female", "male", "male", "female"))
+class(gender)
+# Accessing elements of a Factor in R
+gender <- factor(c("female", "male", "male", "female"))
+print(gender[3])
+gender <- factor(c("female", "male", "male", "female"))
+print(gender[c(2, 4)])
+
+#Modification of a Factor in R
+gender <- factor(c("female", "male", "male", "female"  ))
+gender[2]<-"female"
+print(gender)
+
+gender <- factor(c("female", "male", "male", "female"  ))
+
+levels(gender) <- c(levels(gender), "other")    
+gender[3] <- "other"
+
+print(gender)
+
+#Removing Elements from a factor in R
+gender <- factor(c("female", "male", "male", "female"  ))
+print(gender[-3])
+
+# Factors in Data Frame 
+age <- c(40, 49, 48, 40, 67, 52, 53)  
+
+salary <- c(103200, 106200, 150200,
+            10606, 10390, 14070, 10220)
+
+gender <- c("male", "male", "transgender", 
+            "female", "male", "female", "transgender")
+
+employee <- data.frame(age, salary, gender = factor(gender))  
+
+print(employee)  
+
+print(is.factor(employee$gender))
+
+```
+```{r}
+# ---------------- control Structure in R---------------------
+#if (condition) {
+  # code if TRUE
+#} else {
+  # code if FALSE (optional)
+#}
+    x <- 10
+    if (x > 5) {
+      print("x is greater than 5")
+    }
+# iF else
+    y <- 3
+    if (y %% 2 == 0) {
+      print("y is even")
+    } else {
+      print("y is odd")
+    }
+
+x <- 10
+
+if (x > 5) {
+  print("x is greater than 5")
+} else {
+  print("x is 5 or less")
+}
+#Nested if-else
+if (x > 10) {
+  print("x > 10")
+} else if (x == 10) {
+  print("x equals 10")
+} else {
+  print("x < 10")
+}
+#ifelse
+vals <- c(2, 7, 10, -3, 0)
+
+result <- ifelse(vals > 0, "Positive", "Non-positive")
+print(result)
+# Output: "Positive" "Positive" "Positive" "Negative" "Non-positive"
+
+#if-else if-else 
+    score <- 75
+    if (score >= 90) {
+      print("Grade A")
+    } else if (score >= 80) {
+      print("Grade B")
+    } else {
+      print("Grade C or lower")
+    }
+    
+# ----------------  Loops:--------------------
+# For Loop
+        fruits <- c("apple", "banana", "cherry")
+    for (fruit in fruits) {
+      print(fruit)
+    }
+#while loop
+        i <- 1
+    while (i <= 3) {
+      print(paste("Iteration:", i))
+      i <- i + 1
+    }
+ 
+        
+# RepeatLoop
+            j <- 0
+    repeat {
+      print(paste("Value of j:", j))
+      j <- j + 1
+      if (j > 2) {
+        break # Exit the loop when j is greater than 2
+      }
+    }
+            #Break in loop 
+
+    for (k in 1:5) {
+      if (k == 3) {
+        break
+      }
+      print(k)
+    }
+            
+            
+            
+# Next in loop
+                for (l in 1:5) {
+      if (l == 3) {
+        next
+      }
+      print(l)
+                }
+#  Switch 
+            day_number <- 3
+day_name <- switch(day_number, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+print(day_name)
+
+# Output:
+# [1] "Wednesday"
+
+# Using a character string as the expression
+day_string <- "Wednesday"
+message <- switch(day_string, 
+                  "Monday" = "Start of the week.", 
+                  "Wednesday" = "Hump day!", 
+                  "Friday" = "Almost the weekend.")
+
+print(message)
+# ---------------- Advanced Control Structures in R ---------------------
+
+# ----- Vectorized ifelse (fast & efficient) -----
+nums <- -5:5
+categories <- ifelse(nums > 0, "Positive",
+                     ifelse(nums < 0, "Negative", "Zero"))
+print(data.frame(nums, categories))
+
+# ----- Nested ifelse for grading system -----
+marks <- c(95, 82, 67, 50, 30)
+grades <- ifelse(marks >= 90, "A",
+          ifelse(marks >= 75, "B",
+          ifelse(marks >= 60, "C",
+          ifelse(marks >= 45, "D", "F"))))
+print(data.frame(marks, grades))
+
+
+# ----- Switch with default case -----
+day <- "Sunday"
+msg <- switch(day,
+              "Monday" = "Start of week",
+              "Friday" = "Weekend loading...",
+              "Sunday" = "Holiday",
+              "Unknown Day")  # default if not matched
+print(msg)
+
+
+# ----- For loop with condition inside -----
+for (i in 1:10) {
+  if (i %% 2 == 0) {
+    print(paste(i, "is even"))
+  }
+}
+
+# ----- Nested Loops (matrix traversal) -----
+mat <- matrix(1:9, nrow=3)
+for (i in 1:nrow(mat)) {
+  for (j in 1:ncol(mat)) {
+    print(paste("Element at [", i, ",", j, "] =", mat[i,j]))
+  }
+}
+
+
+# ----- While loop with custom condition -----
+counter <- 1
+while (counter <= 5) {
+  if (counter %% 2 == 1) {
+    print(paste("Odd number:", counter))
+  }
+  counter <- counter + 1
+}
+
+
+# ----- Repeat loop with random break -----
+set.seed(123)
+attempts <- 0
+repeat {
+  attempts <- attempts + 1
+  num <- sample(1:10, 1)
+  print(paste("Try", attempts, "=> got", num))
+  
+  if (num == 7) {
+    print("Lucky 7 found, stopping loop!")
+    break
+  }
+}
+
+
+# ----- Break & Next combined -----
+for (x in 1:10) {
+  if (x == 3) {
+    next  # skip 3
+  }
+  if (x > 7) {
+    break # stop completely after 7
+  }
+  print(x)
+}
+
+
+# ----- apply-family instead of loops (vectorized) -----
+
+# sapply -> simplified result
+squares <- sapply(1:5, function(x) x^2)
+print(squares)
+
+# lapply -> always returns list
+cubes <- lapply(1:5, function(x) x^3)
+print(cubes)
+
+# mapply -> multiple inputs
+sum_two <- mapply(function(a, b) a + b, 1:5, 6:10)
+print(sum_two)
+
+# tapply -> group-wise apply
+data <- data.frame(
+  group = c("A","A","B","B","C","C"),
+  values = c(10, 20, 15, 25, 30, 40)
+)
+avg <- tapply(data$values, data$group, mean)
+print(avg)
+
+
+# ----- Control with functions -----
+check_num <- function(n) {
+  if (n > 0) {
+    return("Positive")
+  } else if (n < 0) {
+    return("Negative")
+  } else {
+    return("Zero")
+  }
+}
+print(check_num(10))
+print(check_num(-2))
+print(check_num(0))
+
+```
+```{r}
+# Analysis Part
+# Sample numeric data (replace with your own vector)
+x <- c(12, 15, 14, 10, 18, 20, 25, 30, 22, 18, 15, 17)
+
+
+# 1.1 Summary view
+summary(x) # Min, 1Q, Median, Mean, 3Q, Max
+
+
+# 1.2 Central tendency
+mean(x)
+median(x)
+
+
+
+
+
+# 1.3 Dispersion
+var(x)
+sd(x)
+
+IQR(x) # interquartile range
+range(x) # min & max
+
+
+
+# 1.5 Quantiles
+quantile(x, probs = c(.05, .25, .5, .75, .95))
+
+
+# 1.6 Outlier detection via IQR rule
+Q1 <- quantile(x, .25)
+Q3 <- quantile(x, .75)
+whisker <- 1.5 * IQR(x)
+lo <- Q1 - whisker; hi <- Q3 + whisker
+outliers <- x[x < lo | x > hi]
+list(Q1 = Q1, Q3 = Q3, Lower = lo, Upper = hi, Outliers = outliers)
+# ---------------- SINGLE SAMPLE T-TEST ----------------
+x = c(45,43,46,54,55,26,57,59,65,63,57,49)
+t.test(x)                # one-sample t-test
+t.test(x, mu = 60)       # test with hypothesized mean
+
+set.seed(0)
+sweetsold <- c(rnorm(60, mean=140, sd=5))
+t.test(sweetsold, mu=150)
+
+# ---------------- TWO SAMPLE T-TEST ----------------
+x1 <- c(45,43,46,54,55,26,57,59,65,63,57,49,61)
+x2 <- c(56,76,78,73,82,41,25,58,78,44,59,70)
+t.test(x1, x2, var.equal = TRUE)
+
+set.seed(0)
+shopeone <- rnorm(55, mean=140, sd=4.5)
+shopetwo <- rnorm(50, mean=130, sd=4.3)
+t.test(shopeone, shopetwo, var.equal=TRUE)
+
+# ---------------- PAIRED SAMPLE T-TEST ----------------
+x3 = c(23,34,32,33,45,43,46,47,39,48)
+x4 = c(45,56,54,55,67,34,65,38,78,71)
+t.test(x3, x4, paired=TRUE)
+
+set.seed(10)
+s1 <- c(rnorm(100, mean=14, sd=0.3))
+s2 <- c(rnorm(100, mean=13, sd=0.2))
+t.test(s1, s2, paired=TRUE)
+
+# ---------------- ANOVA ----------------
+size <- c(3,4,5,6,6,7,7,8,9,10,11,12)
+pop <- c("A","A","A","A","B","B","B","B","C","C","C","C")
+
+lm.model <- lm(size ~ pop)   # linear model
+summary(lm.model)
+
+aov.model <- aov(size ~ pop) # one-way ANOVA
+summary(aov.model)
+TukeyHSD(aov.model)          # Post Hoc test
+
+# ---------------- ANOVA (Data Frame Example) ----------------
+df <- data.frame(x = rep(c("tech1","tech2","tech3"), each=10),
+                 y = c(34,33,44,56,78,44,12,23,34,45,
+                       24,25,45,56,57,67,45,67,89,98,
+                       12,34,56,78,56,20,30,12,23,45))
+model <- aov(y ~ x, data=df)
+summary(model)
+TukeyHSD(model)
+
+# ---------------- TWO-WAY ANOVA ----------------
+set.seed(10)
+dat1 <- data.frame(
+  gender = rep(c("male","female"), each=15),
+  exercise = rep(c("none","light","intense"), each=5, times=2),
+  weight_loss = c(
+    c(72,73,73,77,82,82,83,84,85,85),
+    c(81,82,83,83,82,84,87,84,85,85),
+    c(77,78,73,79,88,89,83,98,85,95))
+)
+model1 <- aov(weight_loss ~ gender * exercise, data=dat1)
+summary(model1)
+
+# ---------------- CHI-SQUARE TEST ----------------
+data <- matrix(c(2,2,6,4,6,8,12,6,12,8,14,4,8,16,16,6),
+               nrow=4, ncol=4)
+colnames(data) <- c("Milk Chocolate","White Chocolate",
+                    "Dark Chocolate","Sweet Chocolate")
+rownames(data) <- c("Pakistan","UK","USA","UAE")
+chisq.test(data)
+
+# ---------------- CORRELATION ----------------
+x <- c(23,34,32,33,45,43,46,47,39,48)
+y <- c(45,56,54,55,67,34,65,38,78,71)
+cor(x, y, method="pearson")
+cor.test(x, y, method="spearman")
+
+# ---------------- SAMPLING ----------------
+# Simple random sample
+sample(1:10, 10)             # without replacement
+sample(1:10, replace=TRUE)   # with replacement
+sample(c("Good","Defective"), size=10, replace=TRUE, prob=c(0.8,0.2))
+
+# Systematic sample
+library(TeachingSampling)
+p <- c("mon-8","tues-4","wed-4","thurs-6","fri-7","sat-45","sun-45",
+       "mon-7","tues-6","wed-5","thurs-4","fri-3","sat-49","sun-47")
+set.seed(1)
+sys_sample <- p[S.SY(14,4)]
+
+# Stratified Random Sample
+set.seed(123)
+data <- data.frame(
+  ID = 1:100,
+  Gender = sample(c("Male","Female"), size=100, replace=TRUE),
+  Income = rnorm(100, mean=50000, sd=10000)
+)
+head(data)
+
+# ---------------- REGRESSION ----------------
+x <- c(32,64,96,118,126,152,5,158)
+y <- c(99,5,104,8,108,5,100,86)
+lm(y ~ x)                      # simple regression
+lm(y ~ x + I(x^2) + I(x^3))    # polynomial terms
+lm(y ~ poly(x, degree=2, raw=TRUE))
+
+# Multiple Linear Regression
+df <- data.frame(
+  x1 = c(32,64,96,118,126,144,152,5,158),
+  x2 = c(36,69,90,110,166,174,172,5,138),
+  y  = c(90,5,104,8,108,5,100,86,64)
+)
+model <- lm(y ~ x1 + x2, data=df)
+summary(model)
+```
+```{r}
+# Data Visualization in R
+# Title: Data Visualization Code in R with Identified Errors and Corrections
+
+# Basic Plots
+plot(4,5)
+x=c(2,3,5)
+y=c(4,2,5)
+plot(x,y)
+plot(c(3,4,5),c(2,4,6))
+plot(1:29)
+plot(-1:-29)
+# Properties
+plot(-1:-29,type="l",col="green")
+plot(1:23,type="l",col="blue")
+# Labels size pch 1 to 20
+plot(1:10,main="plot",xlab="x axis",type="l",ylab="ylab",cex=1.3,pch=4)
+# Line lty width lwd
+plot(1:10,main="my line",xlab="x axis",type="l",ylab="y lab",lty=3,lwd=2)
+# More than one line in graph
+line1 <- c(1,2,3,4,5,10)
+line2 <- c(2,5,7,8,9,10)
+line3 <- c(5,6,7,8,9,11)
+plot(line1, type = "l", col = "blue")
+lines(line2, type="l", col = "red")
+lines(line3,type="l",col="green")
+
+# Pie Chart
+x = c(10,23,45,64)
+pieLabels = c('khalid','Rizwan_shah', 'ahmad', 'kakar')
+myColors = c('red', 'yellow', 'green', 'blue')
+pie(x,labels = pieLabels, main='My Pie chart',col = myColors, init.angle = 45)
+
+# 3D Pie Chart with Library
+library(plotrix)
+pie3D(x)
+# Legend
+legend('bottomright', pieLabels, fill = myColors)
+pie3D(x, height = 0.1, theta = 1, col = rainbow(4), border= 'green', labels = pieLabels, labelcol = 'blue', mar = c(1,1,1,1), explode = 0.1) # Correction: Adjusted 'col' to match length of data
+
+# Task: Explode just one slice from 3D pie chart
+library(plotly)
+labels <- c("A", "B", "C", "D")
+values <- c(40, 30, 20, 10)
+plot_ly(labels = labels, values = values, type = "pie", hole = 0, pull = c(0, 0, 0.2, 0)) %>% layout(title = "Exploded 3D Pie Chart")
+
+# Another 3D Pie Chart
+library(rAmCharts4)
+dat <- data.frame(group=c("A","B","C","D"), FR=c(20,32,32,16))
+amPieChart(data=dat, category="group", value="FR", threeD=TRUE, variableDepth=TRUE)
+
+# Donut Pie Chart
+library(ggplot2)
+library(webr)
+library(dplyr)
+data <- as.data.frame(Titanic)
+PD <- data %>% group_by(Class,Survived) %>% summarise(n=sum(Freq))
+PieDonut(PD, aes(Class, Survived, count=n))
+PieDonut(PD, aes(Survived, Class, count=n), title="Titanic Survival by Class")
+PieDonut(PD, aes(Survived, Class, count=n), explode = 2)
+PieDonut(PD, aes(Survived, Class, count=n), title="Titanic Survival by Class", explode = 2, explodeDonut = TRUE)
+# Controlling the radius
+PieDonut(PD, aes(Survived, Class, count=n), title="Titanic: Survival by Class", r0=0.3, r1=0.8, r2=1.4)
+
+# Bar Chart
+x <- c(7,15,23,12,44,56,32)
+barplot(x, xlab="Audience", ylab="count", col="green", col.axis="red", col.lab="darkgreen")
+# Horizontal Bar Chart
+barplot(x, xlab = "Audience", ylab = "Count", col = "green", col.axis="red", col.lab="darkgreen", horiz=TRUE)
+# Bar Chart with Labels
+y <- c("jan","feb","mar","april","may","june","july")
+barplot(x, names.arg = y, xlab = "Months", ylab="Articles", col=heat.colors(8), main="Article chart", cex.main=1.0, cex.lab=0.7, cex.axis=0.6)
+# Adding Data Labels on Top of Each Bar
+A <- c(17,2,8,13,1,22)
+B <- c("jan","feb","mar","aprl","may","june")
+barplot(A, names.arg=B, xlab="month", ylab="Article", col="steelblue", main="Article chart", cex.main=1.5, cex.lab=0.7, cex.axis=1.0)
+text(x=barplot(A, names.arg=B, col="steelblue", ylim=c(0, max(A)*1.2)), y=A+1.0, labels = A, pos = 3, cex = 1.0, col = "steelblue")
+
+# Bar Chart with Error Bars
+library(ggplot2)
+data <- data.frame(name=letters[1:5], value=c(12,8,9,15,10), sd=c(1,0.2,3,2,3))
+ggplot(data) + geom_bar(aes(x=name, y=value), stat = "identity", fill="green", alpha=0.8) + geom_errorbar(aes(x=name, ymin = value-sd, ymax = value+sd), width=0.4, colour="darkgreen", alpha=0.9, size=0.8)
+
+# Customizing Individual Bar Widths
+library(plotly)
+x <- c(1,3,5,8.5,15)
+y <- c(10,8,6,4,2)
+width <- c(3,0.6,0.8,3.5,6)
+data <- data.frame(x,y,width)
+fig <- plot_ly(data) %>% add_bars(x=~x, y=~y, width=~width)
+fig
+
+# Agriculture Example Bar Chart
+x <- c(2, 5, 7, 10, 14)
+y <- c(5.0, 4.5, 4.0, 3.0, 2.0)
+width <- c(2, 5, 7, 10, 14)
+data <- data.frame(x, y, width)
+fig <- plot_ly(data) %>% add_bars(x = ~x, y = ~y, width = ~width, text = ~paste("Interval: ", x, " days<br>Yield: ", y, " tons/ha"), hoverinfo = "text") %>% layout(title = "Crop Yield vs. Irrigation Interval", xaxis = list(title = "Irrigation Interval (days)"), yaxis = list(title = "Average Yield (tons/ha)"), bargap = 0.1)
+fig
+
+# Bar Chart for Profit and Loss
+fig <- plot_ly() %>% add_bars(x=c("2016","2017","2018"), y=c(300,400,700), base=0, marker=list(color="blue"), name="revenue") %>% add_bars(x=c("2016","2017","2018"), y=c(-500,-600,-700), base=0, marker=list(color="red"), name="expenses")
+fig
+
+
+# Multiple Bar Chart
+values <- matrix(c(2,9,3,11,9,4,8,7,3,12,5,2,8,10,11), nrow = 3, ncol = 5, byrow = TRUE)
+colors <- c("red","green","pink")
+months <- c("mar","april","may","jun","july")
+barplot(values, main="Total revenue", names.arg = months, xlab = "months", ylab = "revenue", col = colors, beside = TRUE)
+barplot(values, main="Total revenue", names.arg = months, xlab = "months", ylab = "revenue", col = colors, beside = FALSE)
+regions <- c("east","west","north")
+legend("topleft", regions, cex = 0.7, fill = colors)
+
+# Another Multiple Bar Chart with Plotly
+x <- c("jan","feb","mar","april","may","june","july","august","sep","october","nov","december") # Correction: Fixed typo 'octuber' to 'october'
+y1 <- c(20,14,25,16,18,22,19,15,12,16,14,17)
+y2 <- c(19,14,22,14,16,19,15,14,10,12,12,16)
+data <- data.frame(x,y1,y2)
+data$x <- factor(data$x, levels = data[["x"]])
+fig <- plot_ly(data, x=~x, y=~y1, type="bar", name = "Primary product", marker=list(color="rgb(39,130,189)")) %>% add_trace(y=~y2, name="Secondary product", marker=list(color="rgb(204,204,204)")) %>% layout(xaxis=list(title="", tickangle=-45), yaxis=list(title=""), margin=list(b=50), barmode="group")
+fig
+
+# Component Bar Chart
+bar1 <- c(3,4,5,6,7,8,23)
+bar2 <- c(10,12,13,12,13,14,36)
+bar3 <- c(23,24,35,34,56,34,35)
+data <- data.frame(bar1,bar2,bar3)
+colors <- heat.colors(3)
+barplot(as.matrix(data), main="Component Bar chart", ylab="count", beside=FALSE, col=colors)
+
+# Stacked Bar Chart with Numeric Labels
+library(reshape2)
+data <- data.frame(Category = factor(1:7), Bar1 = bar1, Bar2 = bar2, Bar3 = bar3)
+data_long <- melt(data, id.vars = "Category", variable.name = "Component", value.name = "Value")
+ggplot(data_long, aes(x = Category, y = Value, fill = Component)) + geom_bar(stat = "identity") + geom_text(aes(label = Value), position = position_stack(vjust = 0.5), size = 5) + theme_minimal() + labs(title = "Stacked Bar Chart with Numeric Labels", x = "Category", y = "Value")
+
+# Box Plot
+library(tidyverse)
+score <- c(23,34,45,56,67,78,89,76,74,79,90,32)
+qplot(y=score, x="", geom="boxplot", col=I("red"), fill=I("lightblue"), ylab="score", main="stats score")
+# Multiple Box Plot
+data(chickwts)
+qplot(data=chickwts, x=feed, y=weight, geom = 'boxplot', fill=feed)
+data(airquality)
+boxplot(airquality$Ozone)
+# Horizontal Boxplot
+boxplot(airquality$Ozone, main='Ozone distribution', xlab='Ozone', ylab='Ozone', col='red', border='blue', horizontal=TRUE, notch=TRUE)
+# Multiple Boxplot with Normal Distribution
+ozone <- airquality$Ozone
+temp <- airquality$Temp
+ozone_norm <- rnorm(200, mean=mean(ozone, na.rm=TRUE), sd=sd(ozone, na.rm=TRUE))
+temp_norm <- rnorm(200, mean=mean(temp, na.rm=TRUE), sd=sd(temp, na.rm=TRUE))
+boxplot(ozone, ozone_norm, temp, temp_norm, main='Ozone and Temp distribution', at=c(1,2,4,5), names=c('Ozone', 'Ozone Normal', 'Temp', 'Temp Normal'), las=2, col=c('red', 'blue'), border='green', horizontal=TRUE, notch=TRUE)
+boxplot(Temp ~ Month, data=airquality, main='Temp by Month', xlab='Month', ylab='Temp', col=c('red', 'blue', 'green', 'yellow','cyan'), notch=TRUE, border='purple')
+
+# Histogram
+Temperature <- airquality$Temp
+hist(Temperature)
+hist(Temperature, main="Maximum daily temperature at La Guardia Airport", xlab="Temperature in degrees Fahrenheit", xlim=c(50,100), col="darkmagenta", freq=FALSE)
+h <- hist(Temperature, ylim=c(0,40))
+text(h$mids, h$counts, labels=h$counts, adj=c(0.5, -0.5))
+hist(Temperature, breaks=4, main="With breaks=4")
+hist(Temperature, breaks=20, main="With breaks=20")
+hist(Temperature, main="Maximum daily temperature at La Guardia Airport", xlab="Temperature in degrees Fahrenheit", xlim=c(50,100), col="chocolate", border="brown", breaks=c(55,60,70,75,80,100), freq=TRUE)
+
+# Histogram with Online Data
+home_data <- read.csv("https://raw.githubusercontent.com/rashida048/Datasets/master/home_data.csv")[, c('price', 'condition')]
+hist(home_data$price, breaks=20, col='blue', freq=FALSE, xlim=c(0, 2000000), border='blue', xlab='Price', ylab='Frequency')
+# Add Normal Curve
+x <- mtcars$mpg
+h <- hist(x, breaks=8, col="red", xlab="miles per gallon", main="histogram")
+xfit <- seq(min(x), max(x), length=40)
+yfit <- dnorm(xfit, mean=mean(x), sd=sd(x))
+yfit <- yfit * diff(h$mids[1:2]) * length(x)
+lines(xfit, yfit, col="blue", lwd=2)
+
+# Kernel Density Plot
+d <- density(mtcars$mpg)
+plot(d, main="kernel density of miles")
+polygon(d, col="red", border="green")
+
+# Several Histograms on Same Axis
+library(hrbrthemes)
+data <- data_frame(type=c(rep("variable 1",1000), rep("variable 2",1000)), value=c(rnorm(1000), rnorm(1000, mean=4)))
+p <- data %>% ggplot(aes(x=value, fill=type)) + geom_histogram(color='#e9ecef', alpha=0.6, position='identity') + scale_fill_manual(values=c('#69b3a2','#404080')) + theme_ipsum() + labs(fill="")
+p
+attach(mtcars)
+par(mfrow=c(1,2))
+hist(mpg)
+hist(mpg, prob=TRUE)
+hist(mpg, prob=TRUE, ylim=c(0,0.7))
+lines(density(mpg, na.rm=TRUE))
+curve(dnorm(x, mean=mean(mpg, na.rm=TRUE), sd=sd(mpg, na.rm=TRUE)), add=TRUE, col="red")
+
+# Normal Distribution Over Histogram
+library(rcompanion)
+x <- c(rnorm(10000))
+plotNormalHistogram(x, prob=FALSE, main="normal distribution", length=1000)
+x <- c(rnorm(10000, 2000, 45))
+plotNormalHistogram(x, prob=FALSE, col="black", border="green", main="normal distribution", length=10000, linecol="red", lwd=3)
+
+# Curve and Density Plots
+curve(expr=sin, from=0, to=6*pi)
+curve(x^2-10*x, from=1, to=10)
+data2 <- c(3,5,7,3,2,6,8,5,6,9,4,5,7)
+plot(data2)
+hist(data2)
+plot(density(data2))
+hist(data2, prob=TRUE)
+lines(density(data2))
+hist(rnorm(100), prob=TRUE)
+curve(dnorm(x), add=TRUE)
+lines(density(rnorm(100)), lty=1)
+
+# Frequency Distribution Table
+m <- seq(0,60,10)
+u <- seq(10,70,10)
+mid <- (m+u)/2
+f <- c(4,8,10,13,9,6,5)
+x <- rep(mid,f)
+hist(x)
+# Error: 'ree' is undefined, likely a typo or incomplete line, removed.
+
+# Binomial Distribution
+plot_binom <- function(n,p){
+  x=0:n
+  bin=dbinom(x,n,p)
+  mu_x=n*p
+  plot(x,bin,type="h",lwd=5, main=paste("density=",n,",p=",p), xlab="x", ylab="p(X=x)")
+  abline(v=mu_x,col="red",lwd=4)
+}
+n=40
+values=c(0.05,0.1,0.4,0.5,0.9,0.95)
+par(mfrow=c(2,3)) # Correction: Adjusted rows/columns to match number of plots
+for (p in values) {
+  plot_binom(n,p)
+}
+
+# Cumulative Distribution Functions for Binomial
+plot_binom_cdf <- function(n,p){
+  x=0:n
+  bin=pbinom(x,n,p)
+  plot(bin,type="s",lwd=2, main=paste("density=",n,",p=",p), xlab="x", ylab="p(X=x)")
+  abline(h=0.8,col="red")
+}
+n=40
+values=c(0.05,0.1,0.4,0.5,0.9,0.95) # Correction: Used consistent 'values' variable
+par(mfrow=c(2,3)) # Correction: Adjusted to match number of plots
+for(p in values){
+  plot_binom_cdf(n,p)
+}
+
+# Poisson Distribution
+plot_pois_pmf <- function(mu){
+  x=0:100 # Correction: Defined 'n' as a range since it was hardcoded earlier
+  pois=dpois(x,lambda=mu)
+  mu_x=mu
+  plot(x,pois,type="h",lwd=3, main=paste("Poisson density: mu=",mu), xlab="x", ylab="p(X=x)")
+  abline(v=mu_x,col="red",lwd=2)
+}
+n=100
+values=c(0.5,1,5,8,20,50)
+par(mfrow=c(3,2))
+for (mu in values) {
+  plot_pois_pmf(mu)
+}
+
+# Cumulative Distribution Functions for Poisson
+plot_pois_cdf <- function(mu){
+  x=0:100 # Correction: Defined 'n' as a range
+  pois=ppois(x,mu)
+  plot(x,pois,type="s",lwd=2, main=paste("Poisson distribution mu=",mu), xlab="number of events x", ylab="p(X=x)")
+}
+n=100
+values=c(0.5,1,5,8,20,50)
+par(mfrow=c(3,2))
+for (mu in values) {
+  plot_pois_cdf(mu)
+}
+
+# Comparing Poisson with Binomial
+par(mfrow=c(2,1))
+plot_binom_cdf(10,0.5)
+plot_pois_cdf(5)
+par(mfrow=c(2,1))
+plot_binom_cdf(1000,0.0005)
+plot_pois_cdf(5)
+```
+
+
+
+
+
+
